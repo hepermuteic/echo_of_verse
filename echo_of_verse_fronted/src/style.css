@@ -1,0 +1,133 @@
+:root {
+  --paper: #f3ebdd;
+  --paper-deep: #e9dfcb;
+  --ink: #252a2d;
+  --ink-soft: #4a5256;
+  --ink-faint: #7b8082;
+  --indigo: #243746;
+  --stone: #557b83;
+  --cinnabar: #a84437;
+  --gold: #b99a61;
+  --line: rgba(37, 42, 45, 0.28);
+
+  --f-brush: 'Ma Shan Zheng', 'STXingkai', 'KaiTi', serif;
+  --f-song: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  /* 楷体：诗文正文用。华文楷体（STKaiti）字形最正、最像唐楷，次选 Windows 楷体。
+     LXGW WenKai（@fontsource 版）只带 latin 字形、无中文，不可用，故走系统字体。 */
+  --f-kai: 'STKaiti', 'KaiTi', 'Kaiti SC', 'TW-Kai', 'BiauKai', 'Noto Serif SC', serif;
+  --f-en: 'Cormorant Garamond', 'Georgia', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  background: #0f171d;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--f-song);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; }
+
+/* ---------- 舞台：固定 1920×1080，等比缩放 ---------- */
+.stage-wrap { position: fixed; inset: 0; overflow: hidden; background: #eee4cf; }
+.stage-wrap.home, .stage-wrap.poem, .stage-wrap.scroll, .stage-wrap.select { background: #f3ebdd; }
+.stage-wrap.hud { background: #14212a; }
+.stage-wrap.pause { background: #ddd3bf; }
+@media (pointer: fine) { html, body, button, a, input, summary { cursor: none !important; } }
+.stage {
+  position: absolute; left: 50%; top: 50%;
+  width: 1920px; height: 1080px;
+  flex: none;
+  transform-origin: center center;
+  overflow: hidden;
+  background: var(--paper);
+}
+.stage.dark { background: var(--indigo); color: var(--paper); }
+
+/* 纸纹覆盖层：低对比 */
+.paper-grain::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: url('./assets/art/paper.png') center / cover;
+  mix-blend-mode: multiply; opacity: .55;
+}
+
+.fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- 字号体系 ---------- */
+.t-brush { font-family: var(--f-brush); font-weight: 400; letter-spacing: .08em; }
+.t-title { font-size: 40px; font-weight: 600; letter-spacing: .14em; }
+.t-menu { font-size: 30px; font-weight: 500; letter-spacing: .3em; }
+.t-body { font-size: 24px; line-height: 1.9; }
+.t-aux { font-size: 20px; line-height: 1.7; color: var(--ink-soft); letter-spacing: .04em; }
+.t-en { font-family: var(--f-en); font-style: italic; letter-spacing: .06em; }
+
+/* ---------- 朱印 ---------- */
+.seal {
+  display: inline-grid; place-items: center; flex: none;
+  width: 28px; height: 28px; background: var(--cinnabar); color: #f6e9d6;
+  font-family: var(--f-brush); font-size: 17px; line-height: 1;
+  border-radius: 2px; transform: rotate(-3deg);
+  box-shadow: inset 0 0 0 1.5px rgba(246, 233, 214, .35);
+}
+.seal.sm { width: 14px; height: 14px; font-size: 0; border-radius: 1px; }
+.seal.lg { width: 52px; height: 52px; font-size: 30px; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  height: 56px; padding: 0 calc(40px - .24em) 0 40px; /* 扣掉末字后的字距，文字才真正居中 */ font-family: var(--f-song); font-size: 24px; font-weight: 500;
+  letter-spacing: .24em; border-radius: 2px; transition: background .25s, color .25s, box-shadow .25s;
+}
+.btn.primary { background: var(--indigo); color: var(--paper); }
+.btn.primary:hover, .btn.primary:focus-visible { background: #1b2b37; box-shadow: 0 0 0 3px rgba(168, 68, 55, .0), inset 0 -3px 0 var(--cinnabar); outline: none; }
+.btn.ghost { border: 1.5px solid var(--ink); color: var(--ink); }
+.btn.ghost:hover, .btn.ghost:focus-visible { background: rgba(37, 42, 45, .08); outline: none; }
+.btn.ghost.on-dark { border-color: rgba(243, 235, 221, .7); color: var(--paper); }
+.btn .seal { opacity: 0; transition: opacity .2s; }
+.btn:hover .seal, .btn:focus-visible .seal { opacity: 1; }
+
+/* ---------- 导航菜单（带淡墨晕染 + 朱印） ---------- */
+.menu-item {
+  position: relative; display: flex; align-items: center; gap: 20px; height: 72px; padding: 0 44px 0 28px;
+  font-size: 30px; font-weight: 500; letter-spacing: .32em; color: var(--ink); text-align: left;
+}
+.menu-item::before {
+  content: ''; position: absolute; inset: 4px 0 4px -20px; z-index: -1; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(ellipse at 30% 50%, rgba(37, 42, 45, .16), rgba(37, 42, 45, .06) 55%, transparent 75%);
+  filter: blur(3px);
+}
+.menu-item .seal { opacity: 0; transform: rotate(-3deg) scale(.6); transition: .25s; }
+.menu-item:hover::before, .menu-item:focus-visible::before, .menu-item.active::before { opacity: 1; }
+.menu-item:hover .seal, .menu-item:focus-visible .seal, .menu-item.active .seal { opacity: 1; transform: rotate(-3deg) scale(1); }
+.menu-item:focus-visible { outline: none; }
+.menu-item small { font-size: 20px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 400; margin-left: 4px; }
+
+/* ---------- 动效 ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes breathe { 0%,100% { opacity: .75; } 50% { opacity: 1; } }
+@keyframes ringPulse { 0%,100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.08); opacity: 1; } }
+@keyframes drift { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+.rise { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.fade { animation: fade 1.2s ease both; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* 页面选择器（仅预览用，浮于舞台外） */
+.preview-nav {
+  position: fixed; z-index: 99; left: 50%; bottom: 6px; transform: translateX(-50%);
+  display: flex; gap: 4px; padding: 4px; background: rgba(15, 23, 29, .82); border-radius: 4px;
+  opacity: 0; transition: opacity .25s;
+}
+.preview-nav:hover { opacity: 1; }
+.preview-nav a { color: #cfc6b4; font: 13px/1 var(--f-song); padding: 6px 10px; text-decoration: none; border-radius: 2px; }
+.preview-nav a.on { background: var(--cinnabar); color: #fff; }
