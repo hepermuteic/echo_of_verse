@@ -16,9 +16,12 @@
 - 截图：`previews/`（仅首页为最新，其余为旧版）；`previews/_bg/` 为六页场所改造后的最新截图（8 张）。
 - 字体：本地 `@fontsource`（`src/fonts.ts` 引入），不再依赖 Google Fonts；变量 `--f-brush`（马善政）、`--f-song`（Noto Serif SC）、`--f-en`（Cormorant Garamond）。
 - 开发服务器：`npx vite --port 5173`。
-- Git 远程：`https://github.com/hepermuteic/echo_of_verse`；前端作为 `echo_of_verse_fronted/` 子目录维护，保留仓库根目录原有 README。
+- Git 远程：`https://github.com/Marrick2005/echo_of_verse`；当前前端位于 `frontend/`，与 `backend/`、`api.md`、`readme.md` 同级。此前目录与上传说明为历史记录。
 
 ## 待办
+
+- [x] 按要求重新克隆 fork 并审查前后端字段，根 api.md 记录兼容项和差异；本轮未增加 HTTP 代码。
+- [ ] 后续独立授权后再实现 HTTP 适配、浏览器代理/CORS、加载与错误状态，以及存档/设置严格校验。
 
 - [x] 前端 73 个文件已上传 GitHub `main`，并生成约 85MB 的本地源码 ZIP；排除依赖、构建产物、本地配置与调试截图；`npm run build` 通过（2026-10-15）。
 - [ ] 用户亲看诗篇卷轴的装裱横卷（`#/scroll`）**除展卷节奏外**的观感：画心悬停的底色提升、绦带、锦包首的层次，给出反馈（展卷节奏已确认，见 2026-10-14 日志）。
@@ -32,7 +35,7 @@
 - [ ] 四处场所的指派与宣纸罩浓度（.55–.74）皆我自拟，请用户核：`#/select` 夜园游廊 / `#/collection` 装裱工坊 / `#/settings` 书斋案头 / `#/ending` 江天暮色。不合原意则改该页的 `far`。
 - [ ] `#/select` 的场所底图露得最少（签架几占满幅）；若要让景物可观，需换更靠上的构图或挪签架（会牵动已定稿的签条几何）。
 - [ ] `#/collection` 右栏题跋与工坊底图的案·棕刷同区争视线，若嫌碍眼可加大罩浓度。
-- [ ] 手动删除 `F:/software/echo_of_verse_fronted/`（项目目录之外的平行目录，本轮探针脚本相对路径多走一级所造，内含已复制回项目的截图副本）。
+- [ ] 手动删除 `<historical-local-path-omitted>`（项目目录之外的平行目录，本轮探针脚本相对路径多走一级所造，内含已复制回项目的截图副本）。
 - [ ] 我另起的验证服务 `vite preview`（4180，PID 39116）待用户手动结束，见 2026-10-14 日志。
 - [ ] 替换 `previews/08_collection.png`、`09_collection_empty.png`（仍是改版前旧图）。
 - [ ] 用户亲看诗篇页竹简开卷动画（节奏、文字起笔时机、竹色），给出反馈。
@@ -47,6 +50,17 @@
 - [ ] 短诗（4 句）居中出现「跑偏」：竹简 11 格，四列若两侧均分则右侧余 3 格、左侧 4 格，`offsetPx` 取整后文字块偏右约 65px，视觉上不在竹简正中。未改，待用户定夺是「贴右缘」还是「真居中」。
 
 ## 日志
+
+### 2026-10-17 · 重新克隆与前后端接口审查
+
+**完成**
+- 前端从 fork 的 e24415f 重新克隆并改为 frontend/；没有复用旧本地前端改造。
+- 后端、前端与 api.md、readme.md 按同级结构整理；api.md 说明请求、响应、字段及未接入部分。
+**未验证 / 风险**
+- 本轮仅审查并记录差异；静态十二首诗、未接入 HTTP、宽松存档转换、设置未全部落盘和结尾页写满进度均保持现状。
+- 没有 Godot 工程或真实设备通关验收。
+**状态**
+- 页面业务源码未修改，当前审查与目录整理不代表完成前后端联调。
 
 ### 2026-10-15 · 前端 Git 上传与源码打包
 **完成**
@@ -137,7 +151,7 @@
 - 新增文件：`src/components/InkAtmos.vue`、`src/components/SceneBackdrop.vue`、`src/assets/art/bg-{corridor,mountroom,study,river}.png`、`previews/_bg/`（8 张截图）。
 - 新增探针脚本：`../_probe_scratch/shotbg.mjs`、`auditbg.mjs`、`finalbg.mjs`。
 - **另一会话（`echo-of-verse-fronted-12`）本轮在改 `src/pages/ArchivePage.vue`（诗篇卷轴改装裱横卷）、新增 `brocade.png`**。双方已互告范围：`ArchivePage.vue` 与 `brocade.png` 归其，本轮六页归我，`silk-mount.png` / `roller-wood.png` 两边只读不改。
-- **待用户手工清理**：探针脚本的相对路径多走了一级，首轮截图落到了 `F:/software/echo_of_verse_fronted/previews/_bg/`（项目目录**之外**的平行目录）。截图已复制回 `previews/_bg/`，但那个外层目录仍在，我尝试删除时被权限策略拦下，请手动删。
+- **待用户手工清理**：探针脚本的相对路径多走了一级，首轮截图落到了 `<historical-local-path-omitted>`（项目目录**之外**的平行目录）。截图已复制回 `previews/_bg/`，但那个外层目录仍在，我尝试删除时被权限策略拦下，请手动删。
 - 用户自己的开发服务器 5173（PID 17444）运行中，未重启、未触碰。CDP Edge（9222）保留。
 
 ### 2026-10-14 · 诗篇卷轴改版：装裱横卷（存档页自右向左展卷）

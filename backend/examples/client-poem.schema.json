@@ -1,0 +1,266 @@
+{
+  "$defs": {
+    "ClientAct": {
+      "additionalProperties": false,
+      "properties": {
+        "n": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "N",
+          "type": "string"
+        },
+        "t": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "T",
+          "type": "string"
+        }
+      },
+      "required": [
+        "n",
+        "t"
+      ],
+      "title": "ClientAct",
+      "type": "object"
+    },
+    "ClientImagery": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "line": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "Line",
+          "type": "string"
+        },
+        "clip": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "Clip",
+          "type": "string"
+        },
+        "note": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        },
+        "src": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "Src",
+          "type": "string"
+        },
+        "art": {
+          "enum": [
+            "home",
+            "scene",
+            "moon",
+            "cup",
+            "shadow",
+            "mist",
+            "weicheng",
+            "jingting",
+            "denggao",
+            "fengqiao",
+            "momei",
+            "cunju",
+            "tianjingsha",
+            "linjiangxian",
+            "jihaizashi",
+            "rumengling",
+            "liangzhou"
+          ],
+          "title": "Art",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "line",
+        "clip",
+        "note",
+        "src",
+        "art"
+      ],
+      "title": "ClientImagery",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "const": "shuidiaogetou",
+      "title": "Id",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "form": {
+      "enum": [
+        "ci",
+        "qu",
+        "shi"
+      ],
+      "title": "Form",
+      "type": "string"
+    },
+    "author": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "title": "Author",
+      "type": "string"
+    },
+    "dynasty": {
+      "enum": [
+        "唐",
+        "宋",
+        "元",
+        "明",
+        "清"
+      ],
+      "title": "Dynasty",
+      "type": "string"
+    },
+    "genre": {
+      "enum": [
+        "送别",
+        "边塞",
+        "思乡",
+        "山水",
+        "田园",
+        "咏月",
+        "怀古",
+        "羁旅",
+        "咏物",
+        "感怀"
+      ],
+      "title": "Genre",
+      "type": "string"
+    },
+    "first": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "title": "First",
+      "type": "string"
+    },
+    "preface": {
+      "anyOf": [
+        {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Preface"
+    },
+    "stanzas": {
+      "items": {
+        "items": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        },
+        "minItems": 1,
+        "type": "array"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "title": "Stanzas",
+      "type": "array"
+    },
+    "acts": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/ClientAct"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Acts"
+    },
+    "imagery": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/ClientImagery"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Imagery"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Note"
+    },
+    "art": {
+      "enum": [
+        "home",
+        "scene",
+        "moon",
+        "cup",
+        "shadow",
+        "mist",
+        "weicheng",
+        "jingting",
+        "denggao",
+        "fengqiao",
+        "momei",
+        "cunju",
+        "tianjingsha",
+        "linjiangxian",
+        "jihaizashi",
+        "rumengling",
+        "liangzhou"
+      ],
+      "title": "Art",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "form",
+    "author",
+    "dynasty",
+    "genre",
+    "first",
+    "stanzas",
+    "art"
+  ],
+  "title": "ClientPoem",
+  "type": "object"
+}

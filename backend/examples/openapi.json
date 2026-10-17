@@ -1,0 +1,1050 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "诗画入境 · 客户端内容契约",
+    "version": "0.5.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "VALIDATION_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "LOCAL_DATA_INVALID / INTERNAL_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "DATABASE_UNAVAILABLE / CONTENT_UNAVAILABLE",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "HTTP_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "HTTP_ERROR: method not allowed",
+            "headers": {
+              "Allow": {
+                "description": "Supported HTTP methods",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/poems": {
+      "get": {
+        "summary": "Poems",
+        "operationId": "poems_api_v1_poems_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoemListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "VALIDATION_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "LOCAL_DATA_INVALID / INTERNAL_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "DATABASE_UNAVAILABLE / CONTENT_UNAVAILABLE",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "HTTP_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "HTTP_ERROR: method not allowed",
+            "headers": {
+              "Allow": {
+                "description": "Supported HTTP methods",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/poems/lookup": {
+      "get": {
+        "summary": "Lookup",
+        "operationId": "lookup_api_v1_poems_lookup_get",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "title": "Title"
+            }
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Author"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookupResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "VALIDATION_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "LOCAL_DATA_INVALID / INTERNAL_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "DATABASE_UNAVAILABLE / CONTENT_UNAVAILABLE",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "HTTP_ERROR",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "HTTP_ERROR: method not allowed",
+            "headers": {
+              "Allow": {
+                "description": "Supported HTTP methods",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ClientAct": {
+        "properties": {
+          "n": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "N"
+          },
+          "t": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "T"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "n",
+          "t"
+        ],
+        "title": "ClientAct"
+      },
+      "ClientImagery": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "line": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Line"
+          },
+          "clip": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Clip"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Note"
+          },
+          "src": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Src"
+          },
+          "art": {
+            "type": "string",
+            "enum": [
+              "home",
+              "scene",
+              "moon",
+              "cup",
+              "shadow",
+              "mist",
+              "weicheng",
+              "jingting",
+              "denggao",
+              "fengqiao",
+              "momei",
+              "cunju",
+              "tianjingsha",
+              "linjiangxian",
+              "jihaizashi",
+              "rumengling",
+              "liangzhou"
+            ],
+            "title": "Art"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "line",
+          "clip",
+          "note",
+          "src",
+          "art"
+        ],
+        "title": "ClientImagery"
+      },
+      "ClientPoem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "const": "shuidiaogetou",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "form": {
+            "type": "string",
+            "enum": [
+              "ci",
+              "qu",
+              "shi"
+            ],
+            "title": "Form"
+          },
+          "author": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Author"
+          },
+          "dynasty": {
+            "type": "string",
+            "enum": [
+              "唐",
+              "宋",
+              "元",
+              "明",
+              "清"
+            ],
+            "title": "Dynasty"
+          },
+          "genre": {
+            "type": "string",
+            "enum": [
+              "送别",
+              "边塞",
+              "思乡",
+              "山水",
+              "田园",
+              "咏月",
+              "怀古",
+              "羁旅",
+              "咏物",
+              "感怀"
+            ],
+            "title": "Genre"
+          },
+          "first": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "First"
+          },
+          "preface": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 8192,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preface"
+          },
+          "stanzas": {
+            "items": {
+              "items": {
+                "type": "string",
+                "maxLength": 8192,
+                "minLength": 1
+              },
+              "type": "array",
+              "minItems": 1
+            },
+            "type": "array",
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Stanzas"
+          },
+          "acts": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClientAct"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Acts"
+          },
+          "imagery": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClientImagery"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Imagery"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 8192,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "art": {
+            "type": "string",
+            "enum": [
+              "home",
+              "scene",
+              "moon",
+              "cup",
+              "shadow",
+              "mist",
+              "weicheng",
+              "jingting",
+              "denggao",
+              "fengqiao",
+              "momei",
+              "cunju",
+              "tianjingsha",
+              "linjiangxian",
+              "jihaizashi",
+              "rumengling",
+              "liangzhou"
+            ],
+            "title": "Art"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "form",
+          "author",
+          "dynasty",
+          "genre",
+          "first",
+          "stanzas",
+          "art"
+        ],
+        "title": "ClientPoem"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "error": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GeneralError"
+              },
+              {
+                "$ref": "#/components/schemas/ValidationErrorDetail"
+              }
+            ],
+            "title": "Error",
+            "discriminator": {
+              "propertyName": "code",
+              "mapping": {
+                "CONTENT_UNAVAILABLE": "#/components/schemas/GeneralError",
+                "DATABASE_UNAVAILABLE": "#/components/schemas/GeneralError",
+                "HTTP_ERROR": "#/components/schemas/GeneralError",
+                "INTERNAL_ERROR": "#/components/schemas/GeneralError",
+                "LOCAL_DATA_INVALID": "#/components/schemas/GeneralError",
+                "VALIDATION_ERROR": "#/components/schemas/ValidationErrorDetail"
+              }
+            }
+          },
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "error",
+          "request_id"
+        ],
+        "title": "ErrorResponse"
+      },
+      "GeneralError": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "LOCAL_DATA_INVALID",
+              "INTERNAL_ERROR",
+              "DATABASE_UNAVAILABLE",
+              "CONTENT_UNAVAILABLE",
+              "HTTP_ERROR"
+            ],
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "GeneralError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status"
+          },
+          "mode": {
+            "type": "string",
+            "const": "offline_content",
+            "title": "Mode"
+          },
+          "deployment": {
+            "type": "string",
+            "title": "Deployment"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "mode",
+          "deployment"
+        ],
+        "title": "HealthResponse"
+      },
+      "LookupMatch": {
+        "properties": {
+          "contentVersion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contentversion"
+          },
+          "contentStatus": {
+            "type": "string",
+            "enum": [
+              "missing",
+              "draft",
+              "released",
+              "invalid"
+            ],
+            "title": "Contentstatus"
+          },
+          "poem": {
+            "$ref": "#/components/schemas/ClientPoem"
+          },
+          "content_review_status": {
+            "type": "string",
+            "enum": [
+              "demo_unreviewed",
+              "reviewed"
+            ],
+            "title": "Content Review Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "contentVersion",
+          "contentStatus",
+          "poem",
+          "content_review_status"
+        ],
+        "title": "LookupMatch"
+      },
+      "LookupResponse": {
+        "properties": {
+          "contentVersion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contentversion"
+          },
+          "contentStatus": {
+            "type": "string",
+            "enum": [
+              "missing",
+              "draft",
+              "released",
+              "invalid"
+            ],
+            "title": "Contentstatus"
+          },
+          "poem_exists": {
+            "type": "boolean",
+            "title": "Poem Exists"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_found",
+              "poem_only",
+              "content_available"
+            ],
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/LookupMatch"
+            },
+            "type": "array",
+            "title": "Matches"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "contentVersion",
+          "contentStatus",
+          "poem_exists",
+          "status",
+          "message",
+          "matches"
+        ],
+        "title": "LookupResponse"
+      },
+      "PoemListItem": {
+        "properties": {
+          "contentVersion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contentversion"
+          },
+          "contentStatus": {
+            "type": "string",
+            "enum": [
+              "missing",
+              "draft",
+              "released",
+              "invalid"
+            ],
+            "title": "Contentstatus"
+          },
+          "id": {
+            "type": "string",
+            "const": "shuidiaogetou",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "form": {
+            "type": "string",
+            "enum": [
+              "ci",
+              "qu",
+              "shi"
+            ],
+            "title": "Form"
+          },
+          "author": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Author"
+          },
+          "dynasty": {
+            "type": "string",
+            "enum": [
+              "唐",
+              "宋",
+              "元",
+              "明",
+              "清"
+            ],
+            "title": "Dynasty"
+          },
+          "genre": {
+            "type": "string",
+            "enum": [
+              "送别",
+              "边塞",
+              "思乡",
+              "山水",
+              "田园",
+              "咏月",
+              "怀古",
+              "羁旅",
+              "咏物",
+              "感怀"
+            ],
+            "title": "Genre"
+          },
+          "first": {
+            "type": "string",
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "First"
+          },
+          "preface": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 8192,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preface"
+          },
+          "stanzas": {
+            "items": {
+              "items": {
+                "type": "string",
+                "maxLength": 8192,
+                "minLength": 1
+              },
+              "type": "array",
+              "minItems": 1
+            },
+            "type": "array",
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Stanzas"
+          },
+          "acts": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClientAct"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Acts"
+          },
+          "imagery": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClientImagery"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Imagery"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 8192,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "art": {
+            "type": "string",
+            "enum": [
+              "home",
+              "scene",
+              "moon",
+              "cup",
+              "shadow",
+              "mist",
+              "weicheng",
+              "jingting",
+              "denggao",
+              "fengqiao",
+              "momei",
+              "cunju",
+              "tianjingsha",
+              "linjiangxian",
+              "jihaizashi",
+              "rumengling",
+              "liangzhou"
+            ],
+            "title": "Art"
+          },
+          "content_review_status": {
+            "type": "string",
+            "enum": [
+              "demo_unreviewed",
+              "reviewed"
+            ],
+            "title": "Content Review Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "contentVersion",
+          "contentStatus",
+          "id",
+          "title",
+          "form",
+          "author",
+          "dynasty",
+          "genre",
+          "first",
+          "stanzas",
+          "art",
+          "content_review_status"
+        ],
+        "title": "PoemListItem"
+      },
+      "PoemListResponse": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PoemListItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Offset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "limit",
+          "offset"
+        ],
+        "title": "PoemListResponse"
+      },
+      "ValidationErrorDetail": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "const": "VALIDATION_ERROR",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationField"
+            },
+            "type": "array",
+            "title": "Fields"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message",
+          "fields"
+        ],
+        "title": "ValidationErrorDetail"
+      },
+      "ValidationField": {
+        "properties": {
+          "location": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "location",
+          "message",
+          "type"
+        ],
+        "title": "ValidationField"
+      }
+    }
+  }
+}

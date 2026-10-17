@@ -1,0 +1,56 @@
+# Canonical backend configuration template; no real credentials in this file.
+# Copy to services.toml, or select a file using EOV_CONFIG_FILE.
+# Environment overrides remain supported; secret fields contain ENV VARIABLE NAMES.
+config_version = "1.0"
+
+[app]
+deployment_name = "local_single_process"
+cors_origins = []
+
+[api]
+# Used by the explicit HTTP health probe, not by the uvicorn listening socket.
+base_url = "http://127.0.0.1:8000"
+timeout_seconds = 5
+
+[database]
+sqlite_path = "data/demo.sqlite3"
+url_env = "DATABASE_URL"
+
+[redis]
+url_env = "REDIS_URL"
+timeout_seconds = 0.2
+
+[llm]
+# Reserved: filling these does not enable model calls in the current prototype.
+enabled = false
+provider = ""
+api_base_url = ""
+model = ""
+api_key_env = "LLM_API_KEY"
+requires_api_key = true
+timeout_seconds = 60
+max_retries = 2
+
+[embedding]
+enabled = false
+provider = ""
+api_base_url = ""
+model = ""
+api_key_env = "EMBEDDING_API_KEY"
+requires_api_key = true
+timeout_seconds = 30
+max_retries = 2
+
+[storage]
+# Reserved; no storage SDK or upload/download API has been connected.
+enabled = false
+provider = "local"
+local_assets_path = "data/assets"
+endpoint = ""
+region = ""
+bucket = ""
+access_key_id_env = "EOV_STORAGE_ACCESS_KEY_ID"
+secret_access_key_env = "EOV_STORAGE_SECRET_ACCESS_KEY"
+session_token_env = "EOV_STORAGE_SESSION_TOKEN"
+timeout_seconds = 10
+presigned_url_ttl_seconds = 900

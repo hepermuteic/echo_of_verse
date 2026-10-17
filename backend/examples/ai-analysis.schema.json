@@ -1,0 +1,324 @@
+{
+  "$defs": {
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "chunkId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Chunkid",
+          "type": "string"
+        },
+        "quote": {
+          "maxLength": 600,
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunkId",
+        "quote"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "Grounded": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        },
+        "basis": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "imagined",
+            "unknown"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "originalQuotes": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "title": "Originalquotes",
+          "type": "array"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 6,
+          "title": "Citations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "value",
+        "basis",
+        "originalQuotes",
+        "citations"
+      ],
+      "title": "Grounded",
+      "type": "object"
+    },
+    "UnitAnalysis": {
+      "additionalProperties": false,
+      "properties": {
+        "unitId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Unitid",
+          "type": "string"
+        },
+        "paraphrase": {
+          "$ref": "#/$defs/Grounded"
+        },
+        "emotionChange": {
+          "$ref": "#/$defs/Grounded"
+        },
+        "time": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Time",
+          "type": "array"
+        },
+        "location": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Location",
+          "type": "array"
+        },
+        "people": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "People",
+          "type": "array"
+        },
+        "imagery": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Imagery",
+          "type": "array"
+        },
+        "actions": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Actions",
+          "type": "array"
+        },
+        "sounds": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Sounds",
+          "type": "array"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Events",
+          "type": "array"
+        },
+        "emotions": {
+          "items": {
+            "$ref": "#/$defs/Grounded"
+          },
+          "maxItems": 12,
+          "title": "Emotions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "unitId",
+        "paraphrase",
+        "emotionChange",
+        "time",
+        "location",
+        "people",
+        "imagery",
+        "actions",
+        "sounds",
+        "events",
+        "emotions"
+      ],
+      "title": "UnitAnalysis",
+      "type": "object"
+    },
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt": {
+          "minimum": 1,
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "promptTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompttokens"
+        },
+        "completionTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Completiontokens"
+        },
+        "totalTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Totaltokens"
+        }
+      },
+      "required": [
+        "attempt",
+        "model"
+      ],
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "publication": {
+      "const": "draft",
+      "default": "draft",
+      "title": "Publication",
+      "type": "string"
+    },
+    "humanReview": {
+      "const": "unreviewed",
+      "default": "unreviewed",
+      "title": "Humanreview",
+      "type": "string"
+    },
+    "poemId": {
+      "const": "su_shi.shuidiaogetou",
+      "default": "su_shi.shuidiaogetou",
+      "title": "Poemid",
+      "type": "string"
+    },
+    "contentVersion": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+      "title": "Contentversion",
+      "type": "string"
+    },
+    "contentDigest": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Contentdigest",
+      "type": "string"
+    },
+    "corpusDigest": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Corpusdigest",
+      "type": "string"
+    },
+    "promptVersion": {
+      "default": "sdt-ai-2",
+      "enum": [
+        "sdt-ai-1",
+        "sdt-ai-2"
+      ],
+      "title": "Promptversion",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "retrievalMethod": {
+      "const": "jieba-bm25",
+      "default": "jieba-bm25",
+      "title": "Retrievalmethod",
+      "type": "string"
+    },
+    "units": {
+      "items": {
+        "$ref": "#/$defs/UnitAnalysis"
+      },
+      "maxItems": 9,
+      "minItems": 9,
+      "title": "Units",
+      "type": "array"
+    },
+    "evidence": {
+      "additionalProperties": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": "Evidence",
+      "type": "object"
+    },
+    "usage": {
+      "items": {
+        "$ref": "#/$defs/Usage"
+      },
+      "title": "Usage",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contentVersion",
+    "contentDigest",
+    "corpusDigest",
+    "model",
+    "units",
+    "evidence",
+    "usage"
+  ],
+  "title": "AnalysisReport",
+  "type": "object"
+}

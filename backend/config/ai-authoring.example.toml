@@ -1,0 +1,12 @@
+# Explicit CLI profile. Does not enable calls in the HTTP app or check_config probes.
+config_version = "1.0"
+
+[llm]
+enabled = true
+provider = "deepseek"
+api_base_url = "https://api.deepseek.com"
+model = "deepseek-flash"
+api_key_env = "DEEPSEEK_API_KEY"
+requires_api_key = true
+timeout_seconds = 60
+max_retries = 2

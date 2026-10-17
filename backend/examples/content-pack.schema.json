@@ -1,0 +1,1546 @@
+{
+  "$defs": {
+    "ActDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "actId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actid",
+          "type": "string"
+        },
+        "order": {
+          "minimum": 1,
+          "title": "Order",
+          "type": "integer"
+        },
+        "title": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "environmentId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Environmentid",
+          "type": "string"
+        },
+        "spawnId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Spawnid",
+          "type": "string"
+        },
+        "exitEventId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Exiteventid",
+          "type": "string"
+        },
+        "nextActId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nextactid"
+        }
+      },
+      "required": [
+        "actId",
+        "order",
+        "title",
+        "environmentId",
+        "spawnId",
+        "exitEventId"
+      ],
+      "title": "ActDefinition",
+      "type": "object"
+    },
+    "AssetRef": {
+      "additionalProperties": false,
+      "properties": {
+        "assetId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Assetid",
+          "type": "string"
+        },
+        "assetVersion": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Assetversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assetId",
+        "assetVersion"
+      ],
+      "title": "AssetRef",
+      "type": "object"
+    },
+    "ClientActBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "actId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actid",
+          "type": "string"
+        },
+        "n": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "N",
+          "type": "string"
+        }
+      },
+      "required": [
+        "actId",
+        "n"
+      ],
+      "title": "ClientActBinding",
+      "type": "object"
+    },
+    "ClientImageryBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "lineTextId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Linetextid",
+          "type": "string"
+        },
+        "clipTextId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Cliptextid",
+          "type": "string"
+        },
+        "noteTextId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Notetextid",
+          "type": "string"
+        },
+        "sourceTextId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Sourcetextid",
+          "type": "string"
+        },
+        "art": {
+          "enum": [
+            "home",
+            "scene",
+            "moon",
+            "cup",
+            "shadow",
+            "mist",
+            "weicheng",
+            "jingting",
+            "denggao",
+            "fengqiao",
+            "momei",
+            "cunju",
+            "tianjingsha",
+            "linjiangxian",
+            "jihaizashi",
+            "rumengling",
+            "liangzhou"
+          ],
+          "title": "Art",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "lineTextId",
+        "clipTextId",
+        "noteTextId",
+        "sourceTextId",
+        "art"
+      ],
+      "title": "ClientImageryBinding",
+      "type": "object"
+    },
+    "ClientPresentation": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceCommit": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Sourcecommit",
+          "type": "string"
+        },
+        "id": {
+          "const": "shuidiaogetou",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "form": {
+          "enum": [
+            "ci",
+            "qu",
+            "shi"
+          ],
+          "title": "Form",
+          "type": "string"
+        },
+        "dynasty": {
+          "enum": [
+            "唐",
+            "宋",
+            "元",
+            "明",
+            "清"
+          ],
+          "title": "Dynasty",
+          "type": "string"
+        },
+        "genre": {
+          "enum": [
+            "送别",
+            "边塞",
+            "思乡",
+            "山水",
+            "田园",
+            "咏月",
+            "怀古",
+            "羁旅",
+            "咏物",
+            "感怀"
+          ],
+          "title": "Genre",
+          "type": "string"
+        },
+        "first": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "First",
+          "type": "string"
+        },
+        "stanzaSegmentIds": {
+          "items": {
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Stanzasegmentids",
+          "type": "array"
+        },
+        "acts": {
+          "items": {
+            "$ref": "#/$defs/ClientActBinding"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Acts",
+          "type": "array"
+        },
+        "imagery": {
+          "items": {
+            "$ref": "#/$defs/ClientImageryBinding"
+          },
+          "minItems": 1,
+          "title": "Imagery",
+          "type": "array"
+        },
+        "noteTextId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notetextid"
+        },
+        "art": {
+          "enum": [
+            "home",
+            "scene",
+            "moon",
+            "cup",
+            "shadow",
+            "mist",
+            "weicheng",
+            "jingting",
+            "denggao",
+            "fengqiao",
+            "momei",
+            "cunju",
+            "tianjingsha",
+            "linjiangxian",
+            "jihaizashi",
+            "rumengling",
+            "liangzhou"
+          ],
+          "title": "Art",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceCommit",
+        "id",
+        "title",
+        "form",
+        "dynasty",
+        "genre",
+        "first",
+        "stanzaSegmentIds",
+        "acts",
+        "imagery",
+        "art"
+      ],
+      "title": "ClientPresentation",
+      "type": "object"
+    },
+    "DwellCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "regionId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Regionid",
+          "type": "string"
+        },
+        "parameterId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Parameterid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "regionId",
+        "parameterId"
+      ],
+      "title": "DwellCondition",
+      "type": "object"
+    },
+    "EnvironmentPreset": {
+      "additionalProperties": false,
+      "properties": {
+        "environmentId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Environmentid",
+          "type": "string"
+        },
+        "assets": {
+          "items": {
+            "$ref": "#/$defs/AssetRef"
+          },
+          "minItems": 1,
+          "title": "Assets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "environmentId",
+        "assets"
+      ],
+      "title": "EnvironmentPreset",
+      "type": "object"
+    },
+    "EventDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Eventid",
+          "type": "string"
+        },
+        "actId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actid",
+          "type": "string"
+        },
+        "required": {
+          "title": "Required",
+          "type": "boolean"
+        },
+        "prerequisites": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Prerequisites",
+          "type": "array"
+        },
+        "trigger": {
+          "discriminator": {
+            "mapping": {
+              "enter_region": "#/$defs/RegionTrigger",
+              "horizontal_movement": "#/$defs/MovementTrigger",
+              "interact": "#/$defs/InteractionTrigger"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/InteractionTrigger"
+            },
+            {
+              "$ref": "#/$defs/RegionTrigger"
+            },
+            {
+              "$ref": "#/$defs/MovementTrigger"
+            }
+          ],
+          "title": "Trigger"
+        },
+        "presentationId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Presentationid",
+          "type": "string"
+        },
+        "completion": {
+          "const": "all_required_steps",
+          "default": "all_required_steps",
+          "title": "Completion",
+          "type": "string"
+        },
+        "segmentIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Segmentids",
+          "type": "array"
+        },
+        "nodeTextId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Nodetextid",
+          "type": "string"
+        },
+        "explanationTextId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Explanationtextid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventId",
+        "actId",
+        "required",
+        "trigger",
+        "presentationId",
+        "segmentIds",
+        "nodeTextId",
+        "explanationTextId"
+      ],
+      "title": "EventDefinition",
+      "type": "object"
+    },
+    "GodotRuntime": {
+      "additionalProperties": false,
+      "properties": {
+        "engine": {
+          "const": "godot",
+          "default": "godot",
+          "title": "Engine",
+          "type": "string"
+        },
+        "engineMajor": {
+          "const": 4,
+          "default": 4,
+          "title": "Enginemajor",
+          "type": "integer"
+        },
+        "targetPlatform": {
+          "const": "windows",
+          "default": "windows",
+          "title": "Targetplatform",
+          "type": "string"
+        },
+        "engineVersion": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "pattern": "^4\\.\\d+(?:\\.\\d+)?(?:[.-][A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Engineversion"
+        },
+        "renderer": {
+          "anyOf": [
+            {
+              "enum": [
+                "forward_plus",
+                "mobile",
+                "gl_compatibility"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Renderer"
+        },
+        "coordinateSystem": {
+          "const": "godot_right_handed_y_up",
+          "default": "godot_right_handed_y_up",
+          "title": "Coordinatesystem",
+          "type": "string"
+        },
+        "metersPerUnit": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 1,
+          "title": "Metersperunit",
+          "type": "number"
+        },
+        "quaternionOrder": {
+          "const": "xyzw",
+          "default": "xyzw",
+          "title": "Quaternionorder",
+          "type": "string"
+        },
+        "bindingsConfirmed": {
+          "default": false,
+          "title": "Bindingsconfirmed",
+          "type": "boolean"
+        }
+      },
+      "title": "GodotRuntime",
+      "type": "object"
+    },
+    "InsightEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "insightId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Insightid",
+          "type": "string"
+        },
+        "segmentIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Segmentids",
+          "type": "array"
+        },
+        "textId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Textid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "insightId",
+        "segmentIds",
+        "textId"
+      ],
+      "title": "InsightEntry",
+      "type": "object"
+    },
+    "InteractionTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "interact",
+          "title": "Kind",
+          "type": "string"
+        },
+        "objectId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Objectid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "objectId"
+      ],
+      "title": "InteractionTrigger",
+      "type": "object"
+    },
+    "MovementTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "horizontal_movement",
+          "title": "Kind",
+          "type": "string"
+        },
+        "regionId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Regionid",
+          "type": "string"
+        },
+        "parameterId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Parameterid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "regionId",
+        "parameterId"
+      ],
+      "title": "MovementTrigger",
+      "type": "object"
+    },
+    "ObjectBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "objectId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Objectid",
+          "type": "string"
+        },
+        "actId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actid",
+          "type": "string"
+        },
+        "asset": {
+          "$ref": "#/$defs/AssetRef"
+        },
+        "position": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Position",
+          "type": "array"
+        },
+        "rotation": {
+          "default": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Rotation",
+          "type": "array"
+        },
+        "scale": {
+          "default": [
+            1,
+            1,
+            1
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Scale",
+          "type": "array"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "objectId",
+        "actId",
+        "asset",
+        "position"
+      ],
+      "title": "ObjectBinding",
+      "type": "object"
+    },
+    "Parameter": {
+      "additionalProperties": false,
+      "properties": {
+        "parameterId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Parameterid",
+          "type": "string"
+        },
+        "value": {
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "enum": [
+            "meters",
+            "seconds"
+          ],
+          "title": "Unit",
+          "type": "string"
+        },
+        "confirmed": {
+          "default": false,
+          "title": "Confirmed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "parameterId",
+        "value",
+        "unit"
+      ],
+      "title": "Parameter",
+      "type": "object"
+    },
+    "PoemDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "poemId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Poemid",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "author": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Author",
+          "type": "string"
+        },
+        "preface": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Preface",
+          "type": "string"
+        },
+        "segments": {
+          "items": {
+            "$ref": "#/$defs/Segment"
+          },
+          "minItems": 1,
+          "title": "Segments",
+          "type": "array"
+        },
+        "sourceIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Sourceids",
+          "type": "array"
+        },
+        "review": {
+          "$ref": "#/$defs/Review"
+        }
+      },
+      "required": [
+        "poemId",
+        "title",
+        "author",
+        "preface",
+        "segments",
+        "sourceIds"
+      ],
+      "title": "PoemDefinition",
+      "type": "object"
+    },
+    "Presentation": {
+      "additionalProperties": false,
+      "properties": {
+        "presentationId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Presentationid",
+          "type": "string"
+        },
+        "execution": {
+          "const": "sequential",
+          "default": "sequential",
+          "title": "Execution",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/Step"
+          },
+          "minItems": 1,
+          "title": "Steps",
+          "type": "array"
+        },
+        "confirmed": {
+          "default": false,
+          "title": "Confirmed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "presentationId",
+        "steps"
+      ],
+      "title": "Presentation",
+      "type": "object"
+    },
+    "ReflectionRule": {
+      "additionalProperties": false,
+      "properties": {
+        "ruleId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Ruleid",
+          "type": "string"
+        },
+        "priority": {
+          "title": "Priority",
+          "type": "integer"
+        },
+        "when": {
+          "$ref": "#/$defs/RuleCondition"
+        },
+        "textId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Textid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ruleId",
+        "priority",
+        "when",
+        "textId"
+      ],
+      "title": "ReflectionRule",
+      "type": "object"
+    },
+    "RegionBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "regionId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Regionid",
+          "type": "string"
+        },
+        "actId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "regionId",
+        "actId"
+      ],
+      "title": "RegionBinding",
+      "type": "object"
+    },
+    "RegionTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "enter_region",
+          "title": "Kind",
+          "type": "string"
+        },
+        "regionId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Regionid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "regionId"
+      ],
+      "title": "RegionTrigger",
+      "type": "object"
+    },
+    "Review": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "demo_unreviewed",
+          "enum": [
+            "demo_unreviewed",
+            "reviewed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewer"
+        },
+        "reviewedAt": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewedat"
+        }
+      },
+      "title": "Review",
+      "type": "object"
+    },
+    "RuleCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "allEvents": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allevents",
+          "type": "array"
+        },
+        "anyEvents": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Anyevents",
+          "type": "array"
+        },
+        "absentEvents": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Absentevents",
+          "type": "array"
+        },
+        "dwellMin": {
+          "items": {
+            "$ref": "#/$defs/DwellCondition"
+          },
+          "title": "Dwellmin",
+          "type": "array"
+        }
+      },
+      "title": "RuleCondition",
+      "type": "object"
+    },
+    "Segment": {
+      "additionalProperties": false,
+      "properties": {
+        "segmentId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Segmentid",
+          "type": "string"
+        },
+        "order": {
+          "minimum": 0,
+          "title": "Order",
+          "type": "integer"
+        },
+        "text": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "segmentId",
+        "order",
+        "text"
+      ],
+      "title": "Segment",
+      "type": "object"
+    },
+    "SourceEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Sourceid",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "original",
+            "reference",
+            "creation"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "editionOrCredit": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Editionorcredit",
+          "type": "string"
+        },
+        "locator": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "review": {
+          "$ref": "#/$defs/Review"
+        }
+      },
+      "required": [
+        "sourceId",
+        "kind",
+        "title",
+        "editionOrCredit",
+        "locator"
+      ],
+      "title": "SourceEntry",
+      "type": "object"
+    },
+    "SpawnBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "spawnId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Spawnid",
+          "type": "string"
+        },
+        "actId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actid",
+          "type": "string"
+        },
+        "position": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Position",
+          "type": "array"
+        }
+      },
+      "required": [
+        "spawnId",
+        "actId",
+        "position"
+      ],
+      "title": "SpawnBinding",
+      "type": "object"
+    },
+    "Step": {
+      "additionalProperties": false,
+      "properties": {
+        "stepId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Stepid",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "animation",
+            "dialogue",
+            "audio",
+            "effect"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "objectId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Objectid"
+        },
+        "textId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Textid"
+        },
+        "asset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "stepId",
+        "kind"
+      ],
+      "title": "Step",
+      "type": "object"
+    },
+    "TextEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "textId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Textid",
+          "type": "string"
+        },
+        "zh": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "title": "Zh",
+          "type": "string"
+        },
+        "en": {
+          "anyOf": [
+            {
+              "maxLength": 8192,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "En"
+        },
+        "contentType": {
+          "enum": [
+            "original",
+            "cultural_explanation",
+            "game_creation",
+            "english_explanation"
+          ],
+          "title": "Contenttype",
+          "type": "string"
+        },
+        "sourceIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Sourceids",
+          "type": "array"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "requiresEnglish": {
+          "default": false,
+          "title": "Requiresenglish",
+          "type": "boolean"
+        },
+        "experienceEventIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Experienceeventids",
+          "type": "array"
+        },
+        "reviewZh": {
+          "$ref": "#/$defs/Review"
+        },
+        "reviewEn": {
+          "$ref": "#/$defs/Review"
+        }
+      },
+      "required": [
+        "textId",
+        "zh",
+        "contentType",
+        "sourceIds"
+      ],
+      "title": "TextEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "else": {
+        "properties": {
+          "clientPresentation": {
+            "type": "null"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "schemaVersion": {
+            "enum": [
+              "1.1",
+              "1.2"
+            ]
+          }
+        },
+        "required": [
+          "schemaVersion"
+        ]
+      },
+      "then": {
+        "properties": {
+          "clientPresentation": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "clientPresentation"
+        ]
+      }
+    },
+    {
+      "else": {
+        "properties": {
+          "runtime": {
+            "type": "null"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "schemaVersion": {
+            "const": "1.2"
+          }
+        },
+        "required": [
+          "schemaVersion"
+        ]
+      },
+      "then": {
+        "properties": {
+          "runtime": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "runtime"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "schemaVersion": {
+      "default": "1.0",
+      "enum": [
+        "1.0",
+        "1.1",
+        "1.2"
+      ],
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "contentVersion": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Contentversion",
+      "type": "string"
+    },
+    "resourceCatalogVersion": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Resourcecatalogversion",
+      "type": "string"
+    },
+    "publication": {
+      "default": "draft",
+      "enum": [
+        "draft",
+        "released"
+      ],
+      "title": "Publication",
+      "type": "string"
+    },
+    "poem": {
+      "$ref": "#/$defs/PoemDefinition"
+    },
+    "acts": {
+      "items": {
+        "$ref": "#/$defs/ActDefinition"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Acts",
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/EventDefinition"
+      },
+      "minItems": 5,
+      "title": "Events",
+      "type": "array"
+    },
+    "texts": {
+      "items": {
+        "$ref": "#/$defs/TextEntry"
+      },
+      "minItems": 1,
+      "title": "Texts",
+      "type": "array"
+    },
+    "insights": {
+      "items": {
+        "$ref": "#/$defs/InsightEntry"
+      },
+      "title": "Insights",
+      "type": "array"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceEntry"
+      },
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    },
+    "objects": {
+      "items": {
+        "$ref": "#/$defs/ObjectBinding"
+      },
+      "minItems": 1,
+      "title": "Objects",
+      "type": "array"
+    },
+    "regions": {
+      "items": {
+        "$ref": "#/$defs/RegionBinding"
+      },
+      "minItems": 1,
+      "title": "Regions",
+      "type": "array"
+    },
+    "spawns": {
+      "items": {
+        "$ref": "#/$defs/SpawnBinding"
+      },
+      "minItems": 3,
+      "title": "Spawns",
+      "type": "array"
+    },
+    "environments": {
+      "items": {
+        "$ref": "#/$defs/EnvironmentPreset"
+      },
+      "minItems": 1,
+      "title": "Environments",
+      "type": "array"
+    },
+    "presentations": {
+      "items": {
+        "$ref": "#/$defs/Presentation"
+      },
+      "minItems": 1,
+      "title": "Presentations",
+      "type": "array"
+    },
+    "parameters": {
+      "items": {
+        "$ref": "#/$defs/Parameter"
+      },
+      "title": "Parameters",
+      "type": "array"
+    },
+    "reflectionRules": {
+      "items": {
+        "$ref": "#/$defs/ReflectionRule"
+      },
+      "title": "Reflectionrules",
+      "type": "array"
+    },
+    "defaultReflectionTextId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Defaultreflectiontextid",
+      "type": "string"
+    },
+    "clientPresentation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ClientPresentation"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "runtime": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/GodotRuntime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "contentVersion",
+    "resourceCatalogVersion",
+    "poem",
+    "acts",
+    "events",
+    "texts",
+    "sources",
+    "objects",
+    "regions",
+    "spawns",
+    "environments",
+    "presentations",
+    "defaultReflectionTextId"
+  ],
+  "title": "ContentPack",
+  "type": "object"
+}

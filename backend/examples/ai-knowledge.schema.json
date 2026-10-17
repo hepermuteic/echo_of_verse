@@ -1,0 +1,155 @@
+{
+  "$defs": {
+    "KnowledgeSource": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Sourceid",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "authorOrPublisher": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Authororpublisher",
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 2048,
+          "pattern": "^https://[^\\s]+$",
+          "title": "Url",
+          "type": "string"
+        },
+        "collectedAt": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "title": "Collectedat",
+          "type": "string"
+        },
+        "editionStatus": {
+          "enum": [
+            "web_located_print_unconfirmed",
+            "publication_located"
+          ],
+          "title": "Editionstatus",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        },
+        "humanReview": {
+          "const": "unreviewed",
+          "default": "unreviewed",
+          "title": "Humanreview",
+          "type": "string"
+        },
+        "paragraphs": {
+          "items": {
+            "$ref": "#/$defs/Paragraph"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Paragraphs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sourceId",
+        "title",
+        "authorOrPublisher",
+        "url",
+        "collectedAt",
+        "editionStatus",
+        "summary",
+        "paragraphs"
+      ],
+      "title": "KnowledgeSource",
+      "type": "object"
+    },
+    "Paragraph": {
+      "additionalProperties": false,
+      "properties": {
+        "chunkId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Chunkid",
+          "type": "string"
+        },
+        "locator": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "original",
+            "historical",
+            "interpretation"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "representation": {
+          "enum": [
+            "verbatim",
+            "paraphrase"
+          ],
+          "title": "Representation",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunkId",
+        "locator",
+        "kind",
+        "representation",
+        "text"
+      ],
+      "title": "Paragraph",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "poemId": {
+      "const": "su_shi.shuidiaogetou",
+      "default": "su_shi.shuidiaogetou",
+      "title": "Poemid",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/KnowledgeSource"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    }
+  },
+  "required": [
+    "sources"
+  ],
+  "title": "KnowledgeBase",
+  "type": "object"
+}

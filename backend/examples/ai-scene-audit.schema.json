@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt": {
+          "minimum": 1,
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "promptTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompttokens"
+        },
+        "completionTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Completiontokens"
+        },
+        "totalTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Totaltokens"
+        }
+      },
+      "required": [
+        "attempt",
+        "model"
+      ],
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "conforms": {
+      "title": "Conforms",
+      "type": "boolean"
+    },
+    "issues": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 40,
+      "title": "Issues",
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "humanReview": {
+      "const": "unreviewed",
+      "default": "unreviewed",
+      "title": "Humanreview",
+      "type": "string"
+    },
+    "sceneDigest": {
+      "title": "Scenedigest",
+      "type": "string"
+    },
+    "validationDigest": {
+      "title": "Validationdigest",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "promptVersion": {
+      "const": "sdt-scene-audit-1",
+      "default": "sdt-scene-audit-1",
+      "title": "Promptversion",
+      "type": "string"
+    },
+    "usage": {
+      "items": {
+        "$ref": "#/$defs/Usage"
+      },
+      "title": "Usage",
+      "type": "array"
+    }
+  },
+  "required": [
+    "conforms",
+    "issues",
+    "sceneDigest",
+    "validationDigest",
+    "model",
+    "usage"
+  ],
+  "title": "SceneAuditReport",
+  "type": "object"
+}

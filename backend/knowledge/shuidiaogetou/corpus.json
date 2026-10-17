@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0",
+  "poemId": "su_shi.shuidiaogetou",
+  "sources": [
+    {
+      "collectedAt": "2026-10-17",
+      "editionStatus": "web_located_print_unconfirmed",
+      "humanReview": "unreviewed",
+      "sourceId": "edb.ks3.17",
+      "title": "水調歌頭並序（建议篇章配套资料）",
+      "authorOrPublisher": "香港特别行政区教育局",
+      "url": "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/recommended-passages/KS3_17.pdf",
+      "summary": "原词与小序为去注码转录；现代说明为简体编者摘要，并非逐字引文。网络 PDF 已定位，未核实纸质出版版本；不替代项目文学审核。",
+      "paragraphs": [
+        {
+          "chunkId": "edb.original.0",
+          "text": "丙辰中秋，歡飲達旦，大醉，作此篇，兼懷子由。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.1",
+          "text": "明月幾時有？把酒問青天。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.2",
+          "text": "不知天上宮闕，今夕是何年。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.3",
+          "text": "我欲乘風歸去，又恐瓊樓玉宇，高處不勝寒。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.4",
+          "text": "起舞弄清影，何似在人間！",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.5",
+          "text": "轉朱閣，低綺戶，照無眠。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.6",
+          "text": "不應有恨，何事長向別時圓？",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.7",
+          "text": "人有悲歡離合，月有陰晴圓缺，此事古難全。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.original.8",
+          "text": "但願人長久，千里共嬋娟。",
+          "locator": "PDF 第1页原文；删除注码；标点沿原资料",
+          "kind": "original",
+          "representation": "verbatim"
+        },
+        {
+          "chunkId": "edb.author",
+          "text": "苏轼（1037—1101），字子瞻，号东坡居士，是宋代作家；苏辙是他的弟弟。",
+          "locator": "PDF 第1页 一、作者简介",
+          "kind": "historical",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.background",
+          "text": "《水调歌头·明月几时有》写于宋神宗熙宁年间，苏轼当时在密州任太守。小序交代丙辰中秋饮酒至天明，并怀念子由。",
+          "locator": "PDF 第1页 二、背景资料",
+          "kind": "historical",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.ziyou",
+          "text": "子由是苏轼弟弟苏辙的字；达旦指持续到天亮。",
+          "locator": "PDF 第2页 注释2、3",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.cup",
+          "text": "把酒指手中举着酒杯；问青天是诗中向天空发问。",
+          "locator": "PDF 第2页 注释4、赏析首段",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.palace",
+          "text": "天上宫阙指月宫；琼楼玉宇指月中美玉般的宫殿，是文学想象的天界场景。",
+          "locator": "PDF 第2页 注释5、8及赏析",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.shadow",
+          "text": "清影是月光照出的人的影子；起舞弄清影描写人与自己的月下身影相伴。",
+          "locator": "PDF 第2页 注释10",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.window",
+          "text": "转朱阁、低绮户描写月光移动到红色楼阁，再透过精美窗户照入。",
+          "locator": "PDF 第2页 注释11、12",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.moon",
+          "text": "婵娟在千里共婵娟一句中借指明月；千里共月表达远隔两地仍可共同赏月。",
+          "locator": "PDF 第2页 注释14",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "edb.emotion",
+          "text": "教育局赏析将上片概括为向往月宫后转向人间，下片从离别思念转向宽慰与祝福。这是作品解释，不是作者实际登月的记录。",
+          "locator": "PDF 第2—3页 四、赏析重点",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        }
+      ]
+    },
+    {
+      "collectedAt": "2026-10-17",
+      "editionStatus": "publication_located",
+      "humanReview": "unreviewed",
+      "sourceId": "peng.2016",
+      "title": "苏轼出守密徐湖时期的词作内容及地位",
+      "authorOrPublisher": "彭文良，《东方论坛》2016年第5期，121—124页",
+      "url": "https://dflt.qdu.edu.cn/__local/F/F0/A5/1FFE3E6C7DD1EF44772DF8EC490_3B3A3551_2AAFB.pdf",
+      "summary": "已定位期刊篇名、作者、年期及页码；以下为学术观点摘要，不冒充唯一解释或逐字引用。",
+      "paragraphs": [
+        {
+          "chunkId": "peng.date",
+          "text": "彭文良讨论《水调歌头·丙辰中秋》时，将熙宁九年丙辰对应为公元1076年。",
+          "locator": "刊页123，讨论《水调歌头·丙辰中秋》的段落",
+          "kind": "historical",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "peng.interpretation",
+          "text": "彭文良把词中天上与人间的往复解读为归朝愿望与政治顾虑交织，属于该作者的政治寄托解释，不能自动升级为已证实的唯一创作动机。",
+          "locator": "刊页123，自“如果说《沁园春》”起的分析",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        },
+        {
+          "chunkId": "peng.emotion",
+          "text": "彭文良把《水调歌头》下片的自我慰藉视为旷达词风的一种表现。",
+          "locator": "刊页124，讨论三种词风的段落",
+          "kind": "interpretation",
+          "representation": "paraphrase"
+        }
+      ]
+    },
+    {
+      "collectedAt": "2026-10-17",
+      "editionStatus": "web_located_print_unconfirmed",
+      "humanReview": "unreviewed",
+      "sourceId": "wang.2012",
+      "title": "苏东坡的中秋月",
+      "authorOrPublisher": "王莉茹，九三学社眉山市委；九三学社四川省委员会网站，2012-10-14",
+      "url": "https://www.93sc.gov.cn/wwwroot/News.aspx?id=5856",
+      "summary": "文化随笔，仅摘编可交叉核对的时间、地点与怀弟背景；文中的修辞、传闻和假想场景不作为历史事实。",
+      "paragraphs": [
+        {
+          "chunkId": "wang.context",
+          "text": "王莉茹的文化随笔把本词放在北宋熙宁九年的中秋背景中，提到密州与对弟弟子由的思念。",
+          "locator": "正文首段及“九百多年前”段",
+          "kind": "historical",
+          "representation": "paraphrase"
+        }
+      ]
+    }
+  ]
+}
