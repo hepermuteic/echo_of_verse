@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.1",
+  "catalog_version": "shuidiaogetou-assets-2",
+  "assets": [
+    {
+      "asset_id": "sdt.courtyard",
+      "asset_version": "2",
+      "asset_type": "scene",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.cup",
+      "asset_version": "2",
+      "asset_type": "scene",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.cloud-steps",
+      "asset_version": "2",
+      "asset_type": "scene",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.moon",
+      "asset_version": "2",
+      "asset_type": "scene",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.distant-light",
+      "asset_version": "2",
+      "asset_type": "scene",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.water",
+      "asset_version": "2",
+      "asset_type": "scene",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.shadow",
+      "asset_version": "2",
+      "asset_type": "vfx",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "tscn",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    },
+    {
+      "asset_id": "sdt.ambient",
+      "asset_version": "2",
+      "asset_type": "audio",
+      "status": "declared",
+      "delivery": "godot_resource",
+      "format": "ogg",
+      "target_platform": "windows",
+      "source": "Declared Godot 4.x resource slot; actual file and project bindings not delivered",
+      "license": "pending",
+      "resource_path": null
+    }
+  ],
+  "engine": "godot"
+}

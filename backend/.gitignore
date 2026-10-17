@@ -1,0 +1,23 @@
+.venv/
+data/
+__pycache__/
+.pytest_cache/
+.uv-cache/
+.tmp/
+.env
+config/services.toml
+config/credentials.env
+
+# Local credentials, generated output and database backups
+*.env
+*.env.*
+!.env.example
+!config/credentials.env.example
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+*.pem
+*.key
+HTTP_VERIFICATION.json

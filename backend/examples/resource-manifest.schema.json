@@ -1,0 +1,430 @@
+{
+  "$defs": {
+    "AssetRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "asset_version": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Version",
+          "type": "string"
+        },
+        "asset_type": {
+          "enum": [
+            "prefab",
+            "scene",
+            "model",
+            "audio",
+            "texture",
+            "material",
+            "vfx"
+          ],
+          "title": "Asset Type",
+          "type": "string"
+        },
+        "status": {
+          "default": "declared",
+          "enum": [
+            "declared",
+            "ready",
+            "retired"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "delivery": {
+          "enum": [
+            "builtin",
+            "addressables",
+            "file",
+            "godot_resource"
+          ],
+          "title": "Delivery",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "unity_prefab",
+            "unity_audioclip",
+            "unity_material",
+            "unity_texture",
+            "assetbundle",
+            "glb",
+            "wav",
+            "ogg",
+            "png",
+            "tscn",
+            "tres",
+            "mp3"
+          ],
+          "title": "Format",
+          "type": "string"
+        },
+        "resource_path": {
+          "anyOf": [
+            {
+              "maxLength": 1024,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resource Path"
+        },
+        "address": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Address"
+        },
+        "catalog_url": {
+          "anyOf": [
+            {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Catalog Url"
+        },
+        "object_location": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectLocation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "size_bytes": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Size Bytes"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sha256"
+        },
+        "dependencies": {
+          "items": {
+            "$ref": "#/$defs/AssetReference"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "target_platform": {
+          "default": "any",
+          "enum": [
+            "any",
+            "windows",
+            "linux",
+            "macos",
+            "android",
+            "ios",
+            "webgl"
+          ],
+          "title": "Target Platform",
+          "type": "string"
+        },
+        "unity_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unity Version"
+        },
+        "render_pipeline": {
+          "anyOf": [
+            {
+              "enum": [
+                "urp",
+                "builtin",
+                "hdrp"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Render Pipeline"
+        },
+        "source_coordinate_system": {
+          "anyOf": [
+            {
+              "enum": [
+                "unity_left_handed_y_up",
+                "gltf_right_handed_y_up"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Coordinate System"
+        },
+        "meters_per_unit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meters Per Unit"
+        },
+        "triangle_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Triangle Count"
+        },
+        "content_review_status": {
+          "default": "demo_unreviewed",
+          "enum": [
+            "demo_unreviewed",
+            "reviewed"
+          ],
+          "title": "Content Review Status",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "license": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "License",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "asset_version",
+        "asset_type",
+        "delivery",
+        "format",
+        "source",
+        "license"
+      ],
+      "title": "AssetRecord",
+      "type": "object"
+    },
+    "AssetReference": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "asset_version": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "asset_version"
+      ],
+      "title": "AssetReference",
+      "type": "object"
+    },
+    "ObjectLocation": {
+      "additionalProperties": false,
+      "description": "Server-side locator; credentials and expiring URLs do not belong here.",
+      "properties": {
+        "provider": {
+          "enum": [
+            "minio",
+            "oss"
+          ],
+          "title": "Provider",
+          "type": "string"
+        },
+        "bucket": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Bucket",
+          "type": "string"
+        },
+        "object_key": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Object Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "bucket",
+        "object_key"
+      ],
+      "title": "ObjectLocation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "else": {
+        "properties": {
+          "engine": {
+            "type": "null"
+          },
+          "assets": {
+            "items": {
+              "properties": {
+                "delivery": {
+                  "not": {
+                    "const": "godot_resource"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "engine": {
+            "const": "godot"
+          },
+          "assets": {
+            "items": {
+              "properties": {
+                "delivery": {
+                  "const": "godot_resource"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "engine"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "schema_version": {
+      "default": "1.0",
+      "enum": [
+        "1.0",
+        "1.1"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "engine": {
+      "anyOf": [
+        {
+          "const": "godot",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Engine"
+    },
+    "catalog_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "assets": {
+      "items": {
+        "$ref": "#/$defs/AssetRecord"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "title": "Assets",
+      "type": "array"
+    }
+  },
+  "required": [
+    "catalog_version",
+    "assets"
+  ],
+  "title": "ResourceManifest",
+  "type": "object"
+}

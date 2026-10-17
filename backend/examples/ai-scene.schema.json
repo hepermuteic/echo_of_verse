@@ -1,0 +1,391 @@
+{
+  "$defs": {
+    "SceneAct": {
+      "additionalProperties": false,
+      "properties": {
+        "actId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Actid",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "segmentIds": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Segmentids",
+          "type": "array"
+        },
+        "time": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Time",
+          "type": "string"
+        },
+        "weather": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Weather",
+          "type": "string"
+        },
+        "location": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Location",
+          "type": "string"
+        },
+        "emotion": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Emotion",
+          "type": "string"
+        },
+        "visualPrompt": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Visualprompt",
+          "type": "string"
+        },
+        "sounds": {
+          "items": {
+            "$ref": "#/$defs/SceneSound"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Sounds",
+          "type": "array"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/SceneObject"
+          },
+          "maxItems": 10,
+          "minItems": 1,
+          "title": "Objects",
+          "type": "array"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/SceneEvent"
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "title": "Events",
+          "type": "array"
+        },
+        "interactions": {
+          "items": {
+            "$ref": "#/$defs/SceneInteraction"
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "title": "Interactions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "actId",
+        "title",
+        "segmentIds",
+        "time",
+        "weather",
+        "location",
+        "emotion",
+        "visualPrompt",
+        "sounds",
+        "objects",
+        "events",
+        "interactions"
+      ],
+      "title": "SceneAct",
+      "type": "object"
+    },
+    "SceneEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Eventid",
+          "type": "string"
+        },
+        "narration": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Narration",
+          "type": "string"
+        },
+        "audiovisualCue": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Audiovisualcue",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventId",
+        "narration",
+        "audiovisualCue"
+      ],
+      "title": "SceneEvent",
+      "type": "object"
+    },
+    "SceneInteraction": {
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Eventid",
+          "type": "string"
+        },
+        "action": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventId",
+        "action"
+      ],
+      "title": "SceneInteraction",
+      "type": "object"
+    },
+    "SceneObject": {
+      "additionalProperties": false,
+      "properties": {
+        "objectId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Objectid",
+          "type": "string"
+        },
+        "position": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Position",
+          "type": "array"
+        },
+        "role": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "objectId",
+        "position",
+        "role"
+      ],
+      "title": "SceneObject",
+      "type": "object"
+    },
+    "SceneSound": {
+      "additionalProperties": false,
+      "properties": {
+        "assetId": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "title": "Assetid",
+          "type": "string"
+        },
+        "direction": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Direction",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assetId",
+        "direction"
+      ],
+      "title": "SceneSound",
+      "type": "object"
+    },
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt": {
+          "minimum": 1,
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "promptTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompttokens"
+        },
+        "completionTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Completiontokens"
+        },
+        "totalTokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Totaltokens"
+        }
+      },
+      "required": [
+        "attempt",
+        "model"
+      ],
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "publication": {
+      "const": "draft",
+      "default": "draft",
+      "title": "Publication",
+      "type": "string"
+    },
+    "humanReview": {
+      "const": "unreviewed",
+      "default": "unreviewed",
+      "title": "Humanreview",
+      "type": "string"
+    },
+    "creativeStatus": {
+      "const": "game_creation_not_historical_record",
+      "default": "game_creation_not_historical_record",
+      "title": "Creativestatus",
+      "type": "string"
+    },
+    "engineImportStatus": {
+      "const": "unverified",
+      "default": "unverified",
+      "title": "Engineimportstatus",
+      "type": "string"
+    },
+    "poemId": {
+      "const": "su_shi.shuidiaogetou",
+      "default": "su_shi.shuidiaogetou",
+      "title": "Poemid",
+      "type": "string"
+    },
+    "contentVersion": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+      "title": "Contentversion",
+      "type": "string"
+    },
+    "contentDigest": {
+      "title": "Contentdigest",
+      "type": "string"
+    },
+    "corpusDigest": {
+      "title": "Corpusdigest",
+      "type": "string"
+    },
+    "analysisDigest": {
+      "title": "Analysisdigest",
+      "type": "string"
+    },
+    "validationDigest": {
+      "title": "Validationdigest",
+      "type": "string"
+    },
+    "promptVersion": {
+      "const": "sdt-scene-1",
+      "default": "sdt-scene-1",
+      "title": "Promptversion",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "factualConstraints": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Factualconstraints",
+      "type": "array"
+    },
+    "excludedClaims": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Excludedclaims",
+      "type": "array"
+    },
+    "acts": {
+      "items": {
+        "$ref": "#/$defs/SceneAct"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Acts",
+      "type": "array"
+    },
+    "usage": {
+      "items": {
+        "$ref": "#/$defs/Usage"
+      },
+      "title": "Usage",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contentVersion",
+    "contentDigest",
+    "corpusDigest",
+    "analysisDigest",
+    "validationDigest",
+    "model",
+    "factualConstraints",
+    "excludedClaims",
+    "acts",
+    "usage"
+  ],
+  "title": "SceneReport",
+  "type": "object"
+}

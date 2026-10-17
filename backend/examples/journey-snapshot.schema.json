@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "CommittedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Eventid",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "eventId",
+        "sequence"
+      ],
+      "title": "CommittedEvent",
+      "type": "object"
+    },
+    "RegionDwell": {
+      "additionalProperties": false,
+      "properties": {
+        "regionId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Regionid",
+          "type": "string"
+        },
+        "effectiveSeconds": {
+          "minimum": 0,
+          "title": "Effectiveseconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "regionId",
+        "effectiveSeconds"
+      ],
+      "title": "RegionDwell",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "contentVersion": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Contentversion",
+      "type": "string"
+    },
+    "journeyId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Journeyid",
+      "type": "string"
+    },
+    "completed": {
+      "title": "Completed",
+      "type": "boolean"
+    },
+    "committedEvents": {
+      "items": {
+        "$ref": "#/$defs/CommittedEvent"
+      },
+      "title": "Committedevents",
+      "type": "array"
+    },
+    "regionDwell": {
+      "items": {
+        "$ref": "#/$defs/RegionDwell"
+      },
+      "title": "Regiondwell",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contentVersion",
+    "journeyId",
+    "completed",
+    "committedEvents"
+  ],
+  "title": "JourneySnapshot",
+  "type": "object"
+}

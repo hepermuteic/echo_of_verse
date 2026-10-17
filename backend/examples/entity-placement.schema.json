@@ -1,0 +1,97 @@
+{
+  "additionalProperties": false,
+  "description": "Placement contract used by offline binding registries.",
+  "properties": {
+    "id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "asset_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "asset_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Asset Version",
+      "type": "string"
+    },
+    "position": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "title": "Position",
+      "type": "array"
+    },
+    "rotation": {
+      "default": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "title": "Rotation",
+      "type": "array"
+    },
+    "scale": {
+      "default": [
+        1,
+        1,
+        1
+      ],
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "title": "Scale",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "asset_id",
+    "asset_version",
+    "position"
+  ],
+  "title": "EntityPlacement",
+  "type": "object"
+}

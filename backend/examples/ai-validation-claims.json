@@ -1,0 +1,10 @@
+[
+  {"claimId":"correct.author","targetId":"preface","text":"《水调歌头·明月几时有》的作者是宋代苏轼。","kind":"historical"},
+  {"claimId":"correct.context","targetId":"preface","text":"苏轼写作本词时在密州任职。","kind":"historical"},
+  {"claimId":"wrong.author","targetId":"preface","text":"《水调歌头·明月几时有》的作者是唐代李白。","kind":"historical"},
+  {"claimId":"wrong.date","targetId":"preface","text":"丙辰中秋这首词创作于公元1080年。","kind":"historical"},
+  {"claimId":"wrong.place","targetId":"preface","text":"苏轼是在黄州创作《水调歌头·明月几时有》的。","kind":"historical"},
+  {"claimId":"wrong.palace","targetId":"sdt.segment.03","text":"琼楼玉宇是苏轼实际登上月球后参观的真实建筑。","kind":"historical"},
+  {"claimId":"interpretation.moon","targetId":"sdt.segment.08","text":"教育局的注释认为本词中的婵娟借指明月。","kind":"interpretation"},
+  {"claimId":"unknown.weather","targetId":"sdt.segment.01","text":"苏轼写本词时准确气温为摄氏十二度。","kind":"historical"}
+]

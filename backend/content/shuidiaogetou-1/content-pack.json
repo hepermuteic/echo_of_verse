@@ -1,0 +1,830 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "shuidiaogetou-1",
+  "resourceCatalogVersion": "shuidiaogetou-assets-1",
+  "publication": "draft",
+  "poem": {
+    "poemId": "su_shi.shuidiaogetou",
+    "title": "水调歌头·明月几时有",
+    "author": "苏轼",
+    "preface": "丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由。",
+    "segments": [
+      {
+        "segmentId": "sdt.segment.01",
+        "order": 0,
+        "text": "明月几时有？把酒问青天。"
+      },
+      {
+        "segmentId": "sdt.segment.02",
+        "order": 1,
+        "text": "不知天上宫阙，今夕是何年。"
+      },
+      {
+        "segmentId": "sdt.segment.03",
+        "order": 2,
+        "text": "我欲乘风归去，又恐琼楼玉宇，高处不胜寒。"
+      },
+      {
+        "segmentId": "sdt.segment.04",
+        "order": 3,
+        "text": "起舞弄清影，何似在人间。"
+      },
+      {
+        "segmentId": "sdt.segment.05",
+        "order": 4,
+        "text": "转朱阁，低绮户，照无眠。"
+      },
+      {
+        "segmentId": "sdt.segment.06",
+        "order": 5,
+        "text": "不应有恨，何事长向别时圆？"
+      },
+      {
+        "segmentId": "sdt.segment.07",
+        "order": 6,
+        "text": "人有悲欢离合，月有阴晴圆缺，此事古难全。"
+      },
+      {
+        "segmentId": "sdt.segment.08",
+        "order": 7,
+        "text": "但愿人长久，千里共婵娟。"
+      }
+    ],
+    "sourceIds": [
+      "poem.pending-source"
+    ]
+  },
+  "acts": [
+    {
+      "actId": "act1",
+      "order": 1,
+      "title": "把酒问月",
+      "environmentId": "environment.1",
+      "spawnId": "spawn.1",
+      "exitEventId": "act1.cup.confirmed",
+      "nextActId": "act2"
+    },
+    {
+      "actId": "act2",
+      "order": 2,
+      "title": "欲往琼楼",
+      "environmentId": "environment.2",
+      "spawnId": "spawn.2",
+      "exitEventId": "act2.return.confirmed",
+      "nextActId": "act3"
+    },
+    {
+      "actId": "act3",
+      "order": 3,
+      "title": "清影与共月",
+      "environmentId": "environment.3",
+      "spawnId": "spawn.3",
+      "exitEventId": "act3.moon.confirmed",
+      "nextActId": null
+    }
+  ],
+  "events": [
+    {
+      "eventId": "act1.cup.confirmed",
+      "actId": "act1",
+      "required": true,
+      "prerequisites": [],
+      "trigger": {
+        "kind": "interact",
+        "objectId": "cup.main"
+      },
+      "presentationId": "presentation.cup",
+      "segmentIds": [
+        "sdt.segment.01"
+      ],
+      "nodeTextId": "node.cup",
+      "explanationTextId": "explanation.cup"
+    },
+    {
+      "eventId": "act2.high.visited",
+      "actId": "act2",
+      "required": false,
+      "prerequisites": [
+        "act1.cup.confirmed"
+      ],
+      "trigger": {
+        "kind": "enter_region",
+        "regionId": "high.main"
+      },
+      "presentationId": "presentation.high",
+      "segmentIds": [
+        "sdt.segment.03"
+      ],
+      "nodeTextId": "node.high",
+      "explanationTextId": "explanation.high"
+    },
+    {
+      "eventId": "act2.return.confirmed",
+      "actId": "act2",
+      "required": true,
+      "prerequisites": [
+        "act1.cup.confirmed"
+      ],
+      "trigger": {
+        "kind": "interact",
+        "objectId": "return.main"
+      },
+      "presentationId": "presentation.return",
+      "segmentIds": [
+        "sdt.segment.03",
+        "sdt.segment.04"
+      ],
+      "nodeTextId": "node.return",
+      "explanationTextId": "explanation.return"
+    },
+    {
+      "eventId": "act3.shadow.responded",
+      "actId": "act3",
+      "required": true,
+      "prerequisites": [
+        "act2.return.confirmed"
+      ],
+      "trigger": {
+        "kind": "horizontal_movement",
+        "regionId": "courtyard.move",
+        "parameterId": "shadow.distance"
+      },
+      "presentationId": "presentation.shadow",
+      "segmentIds": [
+        "sdt.segment.04"
+      ],
+      "nodeTextId": "node.shadow",
+      "explanationTextId": "explanation.shadow"
+    },
+    {
+      "eventId": "act3.moon.confirmed",
+      "actId": "act3",
+      "required": true,
+      "prerequisites": [
+        "act3.shadow.responded"
+      ],
+      "trigger": {
+        "kind": "interact",
+        "objectId": "moon.main"
+      },
+      "presentationId": "presentation.moon",
+      "segmentIds": [
+        "sdt.segment.07",
+        "sdt.segment.08"
+      ],
+      "nodeTextId": "node.moon",
+      "explanationTextId": "explanation.moon"
+    }
+  ],
+  "texts": [
+    {
+      "textId": "sdt.segment.01.text",
+      "zh": "明月几时有？把酒问青天。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": true,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.02.text",
+      "zh": "不知天上宫阙，今夕是何年。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.03.text",
+      "zh": "我欲乘风归去，又恐琼楼玉宇，高处不胜寒。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": true,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.04.text",
+      "zh": "起舞弄清影，何似在人间。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": true,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.05.text",
+      "zh": "转朱阁，低绮户，照无眠。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.06.text",
+      "zh": "不应有恨，何事长向别时圆？",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.07.text",
+      "zh": "人有悲欢离合，月有阴晴圆缺，此事古难全。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "sdt.segment.08.text",
+      "zh": "但愿人长久，千里共婵娟。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": true,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "dialogue.cup",
+      "zh": "举杯，望向明月。",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "dialogue.high",
+      "zh": "云阶之上，风声渐近。",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "dialogue.return",
+      "zh": "回到庭院。",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "dialogue.shadow",
+      "zh": "脚步移动，清影相随。",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "dialogue.moon",
+      "zh": "但愿人长久，千里共婵娟。",
+      "en": null,
+      "contentType": "original",
+      "sourceIds": [
+        "poem.pending-source"
+      ],
+      "requiresEnglish": true,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "node.cup",
+      "zh": "把酒问月",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": [
+        "act1.cup.confirmed"
+      ]
+    },
+    {
+      "textId": "explanation.cup",
+      "zh": "举杯交互对应“把酒问青天”，动作属于关卡创作。",
+      "en": null,
+      "contentType": "cultural_explanation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "node.high",
+      "zh": "到访高处",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": [
+        "act2.high.visited"
+      ]
+    },
+    {
+      "textId": "explanation.high",
+      "zh": "高处区域联系“高处不胜寒”，空间属于关卡创作。",
+      "en": null,
+      "contentType": "cultural_explanation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "node.return",
+      "zh": "返庭",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": [
+        "act2.return.confirmed"
+      ]
+    },
+    {
+      "textId": "explanation.return",
+      "zh": "返庭联系“何似在人间”；早返路线同样可以继续。",
+      "en": null,
+      "contentType": "cultural_explanation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "node.shadow",
+      "zh": "清影回应",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": [
+        "act3.shadow.responded"
+      ]
+    },
+    {
+      "textId": "explanation.shadow",
+      "zh": "移动后的清影表现联系“起舞弄清影”，不是对真实心理的判断。",
+      "en": null,
+      "contentType": "cultural_explanation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "node.moon",
+      "zh": "望月",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": [
+        "act3.moon.confirmed"
+      ]
+    },
+    {
+      "textId": "explanation.moon",
+      "zh": "终点联系“但愿人长久，千里共婵娟”。",
+      "en": null,
+      "contentType": "cultural_explanation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "reflection.default",
+      "zh": "此行已完成。再读原词，回望月色与人间。",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": true,
+      "experienceEventIds": []
+    },
+    {
+      "textId": "reflection.high",
+      "zh": "此行到访高处，又回到人间。",
+      "en": null,
+      "contentType": "game_creation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": [
+        "act2.high.visited"
+      ]
+    },
+    {
+      "textId": "insight.moon",
+      "zh": "这里以“月”连接原词与玩家体验；本说明为待审核的关卡解释。",
+      "en": null,
+      "contentType": "cultural_explanation",
+      "sourceIds": [
+        "draft.creation"
+      ],
+      "requiresEnglish": false,
+      "experienceEventIds": []
+    }
+  ],
+  "insights": [
+    {
+      "insightId": "insight.moon",
+      "segmentIds": [
+        "sdt.segment.01",
+        "sdt.segment.08"
+      ],
+      "textId": "insight.moon"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "poem.pending-source",
+      "kind": "original",
+      "title": "苏轼《水调歌头·明月几时有》原词草稿",
+      "editionOrCredit": "待内容负责人提供实际出版版本并核对",
+      "locator": "待核对原词、小序、标点与分段；非已验证出处"
+    },
+    {
+      "sourceId": "draft.creation",
+      "kind": "creation",
+      "title": "M1 联调创作文案",
+      "editionOrCredit": "AI 辅助生成，作者署名与审核待确认",
+      "locator": "本内容包文本 ID；非史料"
+    }
+  ],
+  "objects": [
+    {
+      "objectId": "cup.main",
+      "actId": "act1",
+      "asset": {
+        "assetId": "sdt.cup",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "courtyard.act1",
+      "actId": "act1",
+      "asset": {
+        "assetId": "sdt.courtyard",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "moon.act1",
+      "actId": "act1",
+      "asset": {
+        "assetId": "sdt.moon",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "return.main",
+      "actId": "act2",
+      "asset": {
+        "assetId": "sdt.courtyard",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "cloud-steps.main",
+      "actId": "act2",
+      "asset": {
+        "assetId": "sdt.cloud-steps",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "moon.act2",
+      "actId": "act2",
+      "asset": {
+        "assetId": "sdt.moon",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "shadow.main",
+      "actId": "act3",
+      "asset": {
+        "assetId": "sdt.shadow",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "moon.main",
+      "actId": "act3",
+      "asset": {
+        "assetId": "sdt.moon",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "water.main",
+      "actId": "act3",
+      "asset": {
+        "assetId": "sdt.water",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": true
+    },
+    {
+      "objectId": "distant-light.main",
+      "actId": "act3",
+      "asset": {
+        "assetId": "sdt.distant-light",
+        "assetVersion": "1"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "required": false
+    }
+  ],
+  "regions": [
+    {
+      "regionId": "high.main",
+      "actId": "act2"
+    },
+    {
+      "regionId": "courtyard.move",
+      "actId": "act3"
+    }
+  ],
+  "spawns": [
+    {
+      "spawnId": "spawn.1",
+      "actId": "act1",
+      "position": [
+        0,
+        1.6,
+        0
+      ]
+    },
+    {
+      "spawnId": "spawn.2",
+      "actId": "act2",
+      "position": [
+        0,
+        1.6,
+        0
+      ]
+    },
+    {
+      "spawnId": "spawn.3",
+      "actId": "act3",
+      "position": [
+        0,
+        1.6,
+        0
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "environmentId": "environment.1",
+      "assets": [
+        {
+          "assetId": "sdt.courtyard",
+          "assetVersion": "1"
+        },
+        {
+          "assetId": "sdt.ambient",
+          "assetVersion": "1"
+        }
+      ]
+    },
+    {
+      "environmentId": "environment.2",
+      "assets": [
+        {
+          "assetId": "sdt.courtyard",
+          "assetVersion": "1"
+        },
+        {
+          "assetId": "sdt.ambient",
+          "assetVersion": "1"
+        }
+      ]
+    },
+    {
+      "environmentId": "environment.3",
+      "assets": [
+        {
+          "assetId": "sdt.courtyard",
+          "assetVersion": "1"
+        },
+        {
+          "assetId": "sdt.ambient",
+          "assetVersion": "1"
+        }
+      ]
+    }
+  ],
+  "presentations": [
+    {
+      "presentationId": "presentation.cup",
+      "confirmed": false,
+      "steps": [
+        {
+          "stepId": "cup.action",
+          "kind": "animation",
+          "objectId": "cup.main"
+        },
+        {
+          "stepId": "cup.dialogue",
+          "kind": "dialogue",
+          "textId": "dialogue.cup"
+        }
+      ]
+    },
+    {
+      "presentationId": "presentation.high",
+      "confirmed": false,
+      "steps": [
+        {
+          "stepId": "high.action",
+          "kind": "animation",
+          "objectId": "cloud-steps.main"
+        },
+        {
+          "stepId": "high.dialogue",
+          "kind": "dialogue",
+          "textId": "dialogue.high"
+        }
+      ]
+    },
+    {
+      "presentationId": "presentation.return",
+      "confirmed": false,
+      "steps": [
+        {
+          "stepId": "return.action",
+          "kind": "animation",
+          "objectId": "return.main"
+        },
+        {
+          "stepId": "return.dialogue",
+          "kind": "dialogue",
+          "textId": "dialogue.return"
+        }
+      ]
+    },
+    {
+      "presentationId": "presentation.shadow",
+      "confirmed": false,
+      "steps": [
+        {
+          "stepId": "shadow.action",
+          "kind": "effect",
+          "objectId": "shadow.main"
+        },
+        {
+          "stepId": "shadow.dialogue",
+          "kind": "dialogue",
+          "textId": "dialogue.shadow"
+        }
+      ]
+    },
+    {
+      "presentationId": "presentation.moon",
+      "confirmed": false,
+      "steps": [
+        {
+          "stepId": "moon.action",
+          "kind": "animation",
+          "objectId": "moon.main"
+        },
+        {
+          "stepId": "moon.dialogue",
+          "kind": "dialogue",
+          "textId": "dialogue.moon"
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "parameterId": "shadow.distance",
+      "value": 1.5,
+      "unit": "meters",
+      "confirmed": false
+    }
+  ],
+  "reflectionRules": [
+    {
+      "ruleId": "reflection.high",
+      "priority": 10,
+      "when": {
+        "allEvents": [
+          "act2.high.visited"
+        ]
+      },
+      "textId": "reflection.high"
+    }
+  ],
+  "defaultReflectionTextId": "reflection.default"
+}

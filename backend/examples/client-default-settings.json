@@ -1,0 +1,13 @@
+{
+  "master": 80,
+  "music": 20,
+  "ambient": 70,
+  "voice": 90,
+  "mouse": 50,
+  "size": 1,
+  "sub": 0,
+  "quality": 1,
+  "brush": true,
+  "reduce": false,
+  "subOn": true
+}

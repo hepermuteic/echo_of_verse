@@ -1,0 +1,78 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "master": {
+      "default": 80,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Master",
+      "type": "integer"
+    },
+    "music": {
+      "default": 20,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Music",
+      "type": "integer"
+    },
+    "ambient": {
+      "default": 70,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Ambient",
+      "type": "integer"
+    },
+    "voice": {
+      "default": 90,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Voice",
+      "type": "integer"
+    },
+    "mouse": {
+      "default": 50,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Mouse",
+      "type": "integer"
+    },
+    "size": {
+      "default": 1,
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Size",
+      "type": "integer"
+    },
+    "sub": {
+      "default": 0,
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Sub",
+      "type": "integer"
+    },
+    "quality": {
+      "default": 1,
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Quality",
+      "type": "integer"
+    },
+    "brush": {
+      "default": true,
+      "title": "Brush",
+      "type": "boolean"
+    },
+    "reduce": {
+      "default": false,
+      "title": "Reduce",
+      "type": "boolean"
+    },
+    "subOn": {
+      "default": true,
+      "title": "Subon",
+      "type": "boolean"
+    }
+  },
+  "title": "ClientSettings",
+  "type": "object"
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "catalog_version": "shuidiaogetou-assets-1",
+  "assets": [
+    {
+      "asset_id": "sdt.courtyard",
+      "asset_version": "1",
+      "asset_type": "prefab",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.courtyard",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.cup",
+      "asset_version": "1",
+      "asset_type": "prefab",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.cup",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.cloud-steps",
+      "asset_version": "1",
+      "asset_type": "prefab",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.cloud-steps",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.moon",
+      "asset_version": "1",
+      "asset_type": "prefab",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.moon",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.distant-light",
+      "asset_version": "1",
+      "asset_type": "prefab",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.distant-light",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.water",
+      "asset_version": "1",
+      "asset_type": "prefab",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.water",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.shadow",
+      "asset_version": "1",
+      "asset_type": "vfx",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_prefab",
+      "address": "sdt.shadow",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    },
+    {
+      "asset_id": "sdt.ambient",
+      "asset_version": "1",
+      "asset_type": "audio",
+      "status": "declared",
+      "delivery": "builtin",
+      "format": "unity_audioclip",
+      "address": "sdt.ambient",
+      "target_platform": "windows",
+      "render_pipeline": "urp",
+      "source": "M1 slot only; actual Unity object not delivered",
+      "license": "pending"
+    }
+  ]
+}

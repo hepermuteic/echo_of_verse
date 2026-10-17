@@ -1,0 +1,7 @@
+.venv
+data
+__pycache__
+.pytest_cache
+.env
+config/services.toml
+config/credentials.env
